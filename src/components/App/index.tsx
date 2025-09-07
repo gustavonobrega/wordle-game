@@ -1,9 +1,13 @@
-function App() {
+import './styles.css'
+
+export default function App() {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="wrapper">
+      <header>Header</header>
+
+      <div className="game-wrapper">
+        Game
+      </div>
     </div>
   );
 }
-
-export default App;
