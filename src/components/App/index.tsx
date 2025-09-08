@@ -1,3 +1,4 @@
+import Game from '../Game';
 import Header from '../Header'
 import './styles.css'
 
@@ -7,7 +8,7 @@ export default function App() {
       <Header />
 
       <div className="game-wrapper">
-        Game
+        <Game />
       </div>
     </div>
   );
