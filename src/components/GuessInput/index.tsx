@@ -4,9 +4,10 @@ import "./styles.css";
 
 interface GuessInputProps {
   handleSubmitGuess: (tentativeGuess: string) => void;
+  gameStatus: string
 }
 
-function GuessInput({ handleSubmitGuess }: GuessInputProps) {
+function GuessInput({ handleSubmitGuess, gameStatus }: GuessInputProps) {
   const [tentativeGuess, setTentativeGuess] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -27,10 +28,11 @@ function GuessInput({ handleSubmitGuess }: GuessInputProps) {
         onChange={(event) =>
           setTentativeGuess(event.target.value.toLocaleUpperCase())
         }
+        title="5 letter word"
+        disabled={gameStatus !== 'running'}
         required
         minLength={5}
         maxLength={5}
-        title="5 letter word"
       />
     </form>
   );
