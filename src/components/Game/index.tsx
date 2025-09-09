@@ -10,9 +10,8 @@ import { WORDS } from "../../data";
 
 import "./styles.css";
 
-const answer = randomWord(WORDS);
-
 export default function Game() {
+  const [answer, setAnswer] = useState(randomWord(WORDS));
   const [guesses, setGuesses] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<"running" | "won" | "lost">(
     "running"
@@ -29,6 +28,12 @@ export default function Game() {
     }
   }
 
+  function handleRestart() {
+    setAnswer(randomWord(WORDS));
+    setGuesses([]);
+    setGameStatus("running");
+  }
+
   return (
     <>
       <GuessResults guesses={guesses} answer={answer} />
@@ -38,8 +43,15 @@ export default function Game() {
         gameStatus={gameStatus}
       />
 
-      {gameStatus === "won" && <WonBanner numOfGuesses={guesses.length} />}
-      {gameStatus === "lost" && <LostBanner answer={answer} />}
+      {gameStatus === "won" && (
+        <WonBanner
+          numOfGuesses={guesses.length}
+          handleRestart={handleRestart}
+        />
+      )}
+      {gameStatus === "lost" && (
+        <LostBanner answer={answer} handleRestart={handleRestart} />
+      )}
     </>
   );
 }

@@ -2,3 +2,9 @@
   background: var(--color-error);
   color: white;
 }
+
+
+.lost.banner button {
+ color: var(--color-error);
+  background: white;
+}

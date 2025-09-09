@@ -2,3 +2,8 @@
   background: var(--color-success);
   color: white;
 }
+
+.won.banner button {
+  color: var(--color-success);
+  background: white;
+}
