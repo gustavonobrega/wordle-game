@@ -17,6 +17,8 @@ export default function Game() {
     "running"
   );
 
+  console.log(answer)
+
   function handleSubmitGuess(tentativeGuess: string) {
     const nextGuesses = [...guesses, tentativeGuess];
     setGuesses(nextGuesses);
